@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="text" id="amount"></td>
+            <td>
+                <select id="fromc">
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="toc">
+                    <option value="VND">VND</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td><button onclick="chuyendoi()">Convert</button></td>
+        </tr>
+    </table>
+    <br>
+    Result:<p id="result"></p>
+    <script>
+        function chuyendoi() {
+            var amount = document.getElementById("amount").value;
+            var From = document.getElementById("fromc").value;
+            var To = document.getElementById("toc").value;
+            var Result;
+            if (From == "VND" && To == "USD") {
+                Result =(amount/23000) + "$";
+            } else if (From == "USD" && To == "VND") {
+                Result =(amount*23000) + "Đ";
+            } else if (From == "VND") {
+                Result =amount + "Đ";
+            } else
+            {
+                Result =amount + "$";
+            }
+            document.getElementById("result").innerHTML = Result;
+        }
+    </script>
+</body>
+</html>
